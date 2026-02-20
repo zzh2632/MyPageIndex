@@ -1,0 +1,6 @@
+# 对PDF建立索引
+python run_pageindex.py --pdf_path tests\pdfs\Electric Management.pdf --if-add-node-text yes --if-add-node-id yes
+
+
+# 对索引结果提问
+python ask_document.py --tree_path .\results\Chengdu_structure.json --query "建立市场+行政的供电保障机制的责任单位是哪些"
