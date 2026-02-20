@@ -68,14 +68,14 @@ if __name__ == "__main__":
         print('Parsing done, saving to file...')
         
         # Save results
-        pdf_name = os.path.splitext(os.path.basename(args.pdf_path))[0]    
+        pdf_name = os.path.splitext(os.path.basename(args.pdf_path))[0]
         output_dir = './results'
         output_file = f'{output_dir}/{pdf_name}_structure.json'
         os.makedirs(output_dir, exist_ok=True)
-        
+
         with open(output_file, 'w', encoding='utf-8') as f:
-            json.dump(toc_with_page_number, f, indent=2)
-        
+            json.dump(toc_with_page_number, f, indent=2, ensure_ascii=False)
+
         print(f'Tree structure saved to: {output_file}')
             
     elif args.md_path:
@@ -122,12 +122,12 @@ if __name__ == "__main__":
         print('Parsing done, saving to file...')
         
         # Save results
-        md_name = os.path.splitext(os.path.basename(args.md_path))[0]    
+        md_name = os.path.splitext(os.path.basename(args.md_path))[0]
         output_dir = './results'
         output_file = f'{output_dir}/{md_name}_structure.json'
         os.makedirs(output_dir, exist_ok=True)
-        
+
         with open(output_file, 'w', encoding='utf-8') as f:
             json.dump(toc_with_page_number, f, indent=2, ensure_ascii=False)
-        
+
         print(f'Tree structure saved to: {output_file}')
