@@ -84,7 +84,9 @@ Directly return the final JSON structure. Do not output anything else.
             text = get_node_text(node)
             if text:
                 relevant_texts.append(f"## {node.get('title', 'Untitled')}\n\n{text}")
-                print(f"  - {node.get('title', 'Untitled')} (页码：{node.get('physical_index', 'N/A')})")
+                # 优先使用 physical_index，否则使用 start_index
+                page_num = node.get('physical_index', node.get('start_index', 'N/A'))
+                print(f"  - {node.get('title', 'Untitled')} (页码：{page_num})")
     
     relevant_content = "\n\n".join(relevant_texts)
     
